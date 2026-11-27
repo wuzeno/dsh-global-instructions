@@ -1,14 +1,36 @@
-# DSH 全局指令 / Global instructions
+# DSH Global Instructions / DSH 全局指令
 
-为 DeepSeek Harness 保存多套全局指令，一次只应用一套。针对 DSH **0.2.2-rc.5** 开发，不需要额外 npm 包或安装脚本。
+[English](#english) · [简体中文](#简体中文) · [Download / 下载](https://github.com/wuzeno/dsh-global-instructions/releases)
 
-![DSH 设置中的全局指令：当前方案、启用开关和内容编辑器](docs/settings-preview.jpg)
+A DeepSeek Harness (DSH) plugin for saving multiple global instruction profiles, applying one at a time, and pausing or resuming without losing your saved instructions.
 
-## 安装
+为 DeepSeek Harness 保存多套全局指令，一次只应用一套，可随时暂停或恢复。
+
+![DSH Global Instructions settings: active profile, toggle, and editor / 全局指令设置页](docs/settings-preview.jpg)
+
+## English
+
+Use different defaults for coding, writing, or everyday chats without rewriting your global `AGENTS.md` by hand.
+
+### Install
+
+Download the `.tgz` from [GitHub Releases](https://github.com/wuzeno/dsh-global-instructions/releases) and install it as a local package in the DSH plugin manager. Alternatively, download and extract the source ZIP, then install the extracted directory containing `package.json`. Developed and tested against **DSH 0.2.2-rc.5**. No extra npm dependencies or build step; not published to npm.
+
+### Use
+
+Open **Settings → Global instructions**. Create and save a profile, then select **Apply this scheme** to switch to it while enabled. If global instructions are paused, choose the profile for the next enable and turn on the switch. The dropdown only changes what you are viewing or editing. The switch pauses global instructions without deleting profiles and restores the selected profile when turned back on. Start a new session after changing the applied instructions.
+
+### Existing instructions and local storage
+
+An existing DSH `AGENTS.md` appears as the default profile. Opening the page does not modify it. Profiles stay in the DSH home directory, and only the active profile is written to the global `AGENTS.md`. The plugin checks for external changes before writing rather than silently overwriting them. Project and shared rules are untouched. Uninstalling leaves saved files on disk. The UI supports English and Simplified Chinese.
+
+## 简体中文
+
+### 安装
 
 从 [GitHub Releases](https://github.com/wuzeno/dsh-global-instructions/releases) 下载发布包。支持本地安装包的 DSH 可在插件管理器中选择下载的 `.tgz`；也可以下载源码 ZIP，解压后选择包含 `package.json` 的插件目录安装。安装后，打开「设置 → 全局指令」。本项目没有发布到 npm。
 
-## 使用
+### 使用
 
 打开「设置 → 全局指令」。可新建、编辑或重命名方案，也可以删除非当前选中的方案。正在编辑的方案和当前选中的方案彼此独立；查看、新建和保存其他方案都不会自动切换。关闭全局指令开关会暂停应用，重新开启后使用当前选中方案。支持中文、英文和明暗主题。
 
@@ -43,6 +65,3 @@ npm test
 
 以 DSH 0.2.2-rc.5 为开发和验证基准；其他版本尚未逐个验证。使用 MIT 许可。
 
----
-
-Open Settings → Global instructions to save multiple schemes, choose one to apply, or pause and resume it. Editing a different scheme does not activate it. The plugin keeps the scheme library in the current DSH home and projects only the active scheme into the global `AGENTS.md`. Project and shared instructions are untouched. Uninstalling leaves both files on disk. Start a new session after changes to the applied instructions. The editor supports Chinese and English; drafts stay in memory. The HTTP API is authenticated and owner-only.
