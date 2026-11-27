@@ -1,0 +1,16 @@
+{
+  "name": "dsh-global-instructions",
+  "version": "0.2.0",
+  "description": "Save, switch, and pause global instruction schemes in DeepSeek Harness.",
+  "type": "module",
+  "license": "MIT",
+  "repository": { "type": "git", "url": "git+https://github.com/wuzeno/dsh-global-instructions.git" },
+  "engines": { "dsh": ">=0.2.2-rc.5" },
+  "exports": { ".": "./index.js", "./client": "./client.js", "./locale/*.json": "./locale/*.json", "./icon": "./icon.svg" },
+  "files": ["index.js", "file-store.js", "scheme-store.js", "client.js", "cordis.patch.yml", "locale", "icon.svg", "README.md", "LICENSE", "docs/settings-preview.jpg"],
+  "scripts": { "test": "node --test" },
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": { "platform": "web", "immediately": true, "inject": ["@deepseek-ai/dsh-client-ui-settings-general"] }
+  }
+}

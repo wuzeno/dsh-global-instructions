@@ -1,0 +1,3 @@
+- insert:
+    - id: global-instructions-editor
+      name: dsh-global-instructions
